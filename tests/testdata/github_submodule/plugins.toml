@@ -1,0 +1,6 @@
+shell = "zsh"
+
+[plugins.test]
+github = "rossmacarthur/sheldon-test"
+branch = "recursive-recursive"
+dir = "self/self"

@@ -1,0 +1,49 @@
+# sheldon
+
+*Fast, configurable, shell plugin manager*
+
+[![Crates.io version](https://badgers.space/crates/version/sheldon)](https://crates.io/crates/sheldon)
+[![Download](https://badgers.space/github/release/rossmacarthur/sheldon)](https://github.com/rossmacarthur/sheldon/releases/latest)
+[![License](https://badgers.space/github/license/rossmacarthur/sheldon)](https://github.com/rossmacarthur/sheldon#license)
+[![Build Status](https://badgers.space/github/checks/rossmacarthur/sheldon/trunk?label=build)](https://github.com/rossmacarthur/sheldon/actions/workflows/build.yaml)
+
+## Features
+
+- Plugins from Git repositories.
+  - Branch / tag / commit support.
+  - Submodule support.
+  - First class support for GitHub repositories.
+  - First class support for Gists.
+- Arbitrary remote scripts or binary plugins.
+- Local plugins.
+- Inline plugins.
+- Highly configurable install methods using templates.
+- Shell agnostic, with sensible defaults for Bash or Zsh
+- Super-fast plugin loading and parallel installation. See [benchmarks].
+- Config file using [TOML](https://toml.io) syntax.
+- Clean  `~/.bashrc` or `~/.zshrc` (just add 1 line).
+
+[benchmarks]: https://github.com/rossmacarthur/zsh-plugin-manager-benchmark
+
+## Table of Contents
+
+{{ toc -}}
+- [💡 Examples](#-examples)
+- [License](#license)
+
+{{ full_contents }}
+
+## 💡 Examples
+
+You can find many examples including deferred loading of plugins in the
+[documentation](https://sheldon.cli.rs/Examples.html).
+
+## License
+
+Licensed under either of
+
+- Apache License, Version 2.0 ([LICENSE-APACHE](LICENSE-APACHE) or
+  http://www.apache.org/licenses/LICENSE-2.0)
+- MIT license ([LICENSE-MIT](LICENSE-MIT) or http://opensource.org/licenses/MIT)
+
+at your option.

@@ -1,0 +1,8 @@
+[target.aarch64-unknown-linux-musl]
+image = "ghcr.io/rossmacarthur/cross-openssl:aarch64-unknown-linux-musl-v0.1.0"
+
+[target.armv7-unknown-linux-musleabihf]
+image = "ghcr.io/rossmacarthur/cross-openssl:armv7-unknown-linux-musleabihf-v0.1.0"
+
+[target.x86_64-unknown-linux-musl]
+image = "ghcr.io/rossmacarthur/cross-openssl:x86_64-unknown-linux-musl-v0.1.0"

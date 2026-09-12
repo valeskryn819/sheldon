@@ -1,0 +1,4 @@
+shell = "zsh"
+
+[plugins.test]
+github = "rossmacarthur/sheldon-test"

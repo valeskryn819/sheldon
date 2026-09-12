@@ -1,0 +1,7 @@
+{
+  "source": "https://github.com/rossmacarthur/sheldon",
+  "commit": "88c1887b46669ede35b9bc083d664a2ee5abb26d",
+  "license": "Apache-2.0",
+  "snapshot": "bounded source subset; workflows excluded",
+  "purpose": "Independent encrypted storage; not an upstream release or endorsement"
+}

@@ -1,0 +1,12 @@
+# Stable options
+newline_style = "Unix"
+
+# Unstable Options
+unstable_features = true
+wrap_comments = true
+condense_wildcard_suffixes = true
+format_strings = true
+normalize_comments = true
+normalize_doc_attributes = true
+reorder_impl_items = true
+use_field_init_shorthand = true

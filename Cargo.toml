@@ -1,0 +1,106 @@
+[package]
+name = "sheldon"
+version = "0.8.5"
+authors = ["Ross MacArthur <ross@macarthur.io>"]
+edition = "2021"
+description = "Fast, configurable, shell plugin manager."
+documentation = "https://sheldon.cli.rs"
+readme = "README.md"
+repository = "https://github.com/rossmacarthur/sheldon"
+license = "MIT OR Apache-2.0"
+keywords = ["shell", "plugin", "manager", "zsh", "bash"]
+categories = ["command-line-utilities"]
+build = "build.rs"
+include = ["src/**/*", "LICENSE-*", "README.md", "build.rs"]
+rust-version = "1.90.0"
+
+[profile.release]
+strip = "symbols"
+
+[profile.compact]
+inherits = "release"
+opt-level = "s"
+lto = true
+panic = "abort"
+codegen-units = 1
+
+[package.metadata.binstall]
+pkg-url = "{ repo }/releases/download/{ version }/sheldon-{ version }-{ target }.tar.gz"
+
+[dependencies]
+anyhow = "1.0.86"
+casual = "0.2.0"
+clap_complete = "4.4.10"
+constcat = "0.6.0"
+curl = "0.4.46"
+fmutex = "0.3.0"
+git2 = "0.20.0"
+globwalk = "0.9.1"
+home = "0.5.9"
+indexmap = { version = "2.4.0", features = ["rayon", "serde"] }
+itertools = "0.14.0"
+maplit = "1.0.2"
+rayon = "1.10.0"
+regex-macro = "0.3.0"
+serde = { version = "1.0.209", features = ["derive"] }
+thiserror = "2.0.11"
+toml = { version = "1.0.7", features = ["preserve_order"] }
+toml_edit = "0.25.5"
+upon = { version = "0.10.0", default-features = false, features = ["serde", "functions"] }
+url = { version = "2.5.2", features = ["serde"] }
+walkdir = "2.5.0"
+which = "8.0.0"
+yansi = "1.0.1"
+
+[dependencies.clap]
+version = "4.5.18"
+default-features = false
+features = [
+    "std", "help", "usage", "error-context", "suggestions", # default excluding "color"
+    "cargo", "env", "derive"                                # optional
+]
+
+[build-dependencies]
+anyhow = "1.0.86"
+
+[dev-dependencies]
+goldie = { version = "0.7.0", default-features = false, features = ["color", "template"] }
+pretty_assertions = "1.4.0"
+tempfile = "3.12.0"
+upon = { version = "0.10.0", default-features = false, features = ["serde", "functions", "syntax"] }
+
+[features]
+# By default vendor libgit2 since we rely on some modern features.
+default = ["vendored-libgit2"]
+
+# Vendor and statically link curl, libgit2, and openssl
+vendored = ["vendored-curl", "vendored-libgit2", "vendored-openssl"]
+
+# Vendor and statically link curl
+vendored-curl = ["curl/static-curl"]
+
+# Vendor and statically link libgit2
+#
+# Disabling this will not force the usage of the system libgit2, you can do that
+# using LIBGIT2_NO_VENDOR=1 which will error at compile time if the system
+# libgit2 is not a high enough version.
+vendored-libgit2 = ["git2/vendored-libgit2"]
+
+# Vendor and statically link openssl
+#
+# Disabling this will not force the usage of the system OpenSSL you can do that
+# using OPENSSL_NO_VENDOR=1
+vendored-openssl = ["git2/vendored-openssl", "curl/static-ssl"]
+
+[lints.rust]
+unknown_lints = "allow"
+elided_lifetimes_in_paths = "warn"
+let_underscore_drop = "warn"
+macro_use_extern_crate = "warn"
+meta_variable_misuse = "warn"
+unsafe_op_in_unsafe_fn = "warn"
+
+[lints.clippy]
+if_not_else = "warn"
+items_after_statements = "warn"
+semicolon_if_nothing_returned = "warn"

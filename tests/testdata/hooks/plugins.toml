@@ -1,0 +1,13 @@
+shell = "zsh"
+
+[plugins.test]
+github = "rossmacarthur/sheldon-test"
+[plugins.test.hooks]
+pre = "pre"
+
+[plugins.inline-test]
+inline = """
+{{ hooks?.pre | nl }}echo 'testing...'
+{{ hooks?.post | nl }}"""
+[plugins.inline-test.hooks]
+post = "post"

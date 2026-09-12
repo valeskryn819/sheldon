@@ -1,0 +1,5 @@
+shell = "zsh"
+
+[plugins.test]
+github = "rossmacarthur/sheldon-test"
+tag = "bad-tag"
